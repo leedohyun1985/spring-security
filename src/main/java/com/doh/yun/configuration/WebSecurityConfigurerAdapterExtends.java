@@ -1,5 +1,8 @@
 package com.doh.yun.configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,12 +32,21 @@ public class WebSecurityConfigurerAdapterExtends extends WebSecurityConfigurerAd
 	@Bean
 	@Override
 	public UserDetailsService userDetailsService() {
-		UserDetails user = User.withDefaultPasswordEncoder()
+		UserDetails user1 = User.withDefaultPasswordEncoder()
 				.username("user").password("user").roles("USER")
-				.username("manager").password("manager").roles("MANAGER")
-				.username("admin").password("admin").roles("ADMIN")
 				.build();
 
-		return new InMemoryUserDetailsManager(user);
+		UserDetails user2 = User.withDefaultPasswordEncoder()
+				.username("manager").password("manager").roles("MANAGER")
+				.build();
+		
+		UserDetails user3 = User.withDefaultPasswordEncoder()
+				.username("admin").password("admin").roles("ADMIN")
+				.build();
+		List<UserDetails> users = new ArrayList<UserDetails>();
+		users.add(user1);
+		users.add(user2);
+		users.add(user3);
+		return new InMemoryUserDetailsManager(users);
 	}
 }
