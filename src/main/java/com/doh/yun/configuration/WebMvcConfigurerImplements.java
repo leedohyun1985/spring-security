@@ -12,5 +12,7 @@ public class WebMvcConfigurerImplements implements WebMvcConfigurer  {
 		registry.addViewController("/").setViewName("home");
 		registry.addViewController("/hello").setViewName("hello");
 		registry.addViewController("/login").setViewName("login");
+		registry.addViewController("/manager").setViewName("manager");
+		registry.addViewController("/admin").setViewName("admin");
 	}
 }

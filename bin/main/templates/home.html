@@ -5,7 +5,16 @@
     </head>
     <body>
         <h1>Welcome!</h1>
-        
+        <ul>
+        <li>id : user / password : user / Role : USER</li>
+        <li>id : manager / password : manager / Role : MANAGER</li>
+        <li>id : admin / password : admin / Role : ADMIN</li>
+        </ul>
+        <p>USER Role을 가진 사용자는 /hello 페이지에 접근가능합니다.</p>
+        <p>MANAGER Role을 가진 사용자는 /hello, /manager 페이지에 접근가능합니다.</p>
+        <p>ADMIN Role을 가진 사용자는 /hello, /manager, /admin 페이지에 접근가능합니다.</p>
         <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+        <p>Click <a th:href="@{/manager}">here</a> to see a Manager Page</p>
+        <p>Click <a th:href="@{/admin}">here</a> to see a Admin Page</p>
     </body>
 </html>
